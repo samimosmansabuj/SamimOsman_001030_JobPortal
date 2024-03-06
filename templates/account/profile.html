@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Profile</title>
+{% endblock %}
+
+{% block body_content %}
+
+<div class="col">
+  <div class="card h-100">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-6">
+            <h1>User</h1>
+            <p>Name: {{request.user.display_name}}</p>
+            <p>Username: {{request.user.username}}</p>
+            <p>Email Address: {{request.user.email}}</p>
+            <p>Profile Type: {{request.user.user_type}}</p>
+
+            <!-- <a href="" class="btn btn-primary">Edit User</a> -->
+          </div>
+          <div class="col-6">
+            <h1>Profile</h1>
+            <p>Address: {{request.user.user_profile.location}}</p>
+            <p>Contact Number: {{request.user.user_profile.contact_number}}</p>
+            <p>Skills: {{request.user.user_profile.skills}}</p>
+            <p>Resume: {{request.user.user_profile.resume}}</p>
+            <p>Bio: {{request.user.user_profile.bio}}</p>
+            <p>Cover Later: {{request.user.user_profile.cover_later}}</p>
+
+            <a href="{% url 'jobseeker_profile' request.user.pk %}" class="btn btn-primary">Edit Profile</a>
+          </div>
+        </div>
+      </div>
+
+      
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Apply Job List</title>
+{% endblock %}
+
+{% block body_content %}
+
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+
+    {% for job in job %}
+    <div class="col">
+        <div class="card h-100" style="background-color: #a56e6e; color: white;">
+            <div class="card-body">
+                <h5 class="card-title">{{job.job.title}}</h5>
+                <p class="card-text">Vacancy: {{job.job.number_of_openings}} | Skills: {{job.skills}}</p>
+                <p class="card-text">{{job.job_description}}</p>
+
+                <p><i>Applied</i></p>
+
+                <div class="row">
+                    <div class="col-6">
+                        <a href="{% url 'applied_cancel' job.id %}" class="btn btn-primary">Cancel</a>
+                    </div>
+                </div>
+            </div>
+
+
+            <br>
+
+            <div class="card-footer">
+                <small class="text-body-secondary">Last updated {{job.updated_date}}</small>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}
