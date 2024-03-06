@@ -40,9 +40,6 @@ INSTALLED_APPS = [
     
     #custom app
     'authentication', 'home',
-    
-    # module app
-    'rest_framework',
 ]
 
 MIDDLEWARE = [
